@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#adds npm modules installed in user home directory to PATH
+PATH=$PATH:$HOME/node_modules/.bin
+
+#finds the currently checked out git branch of the current directory
 parse_git_branch() {
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
