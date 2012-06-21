@@ -2,8 +2,16 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#adds npm modules installed in user home directory to PATH
-PATH=$PATH:$HOME/node_modules/.bin
+#PATH Additions
+  #npm modules installed in user home directory
+  PATH=$PATH:$HOME/node_modules/.bin
+  
+  #RVM
+  #PATH=$PATH:$HOME/.rvm/bin  # <---- THIS MAY BE JUNK
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+  #Android Development Tools
+  PATH=$PATH:$HOME/androing-sdk-linux/tools
 
 #finds the currently checked out git branch of the current directory
 parse_git_branch() {
@@ -41,9 +49,7 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# uncomment for a colored prompt, if the terminal has the capability
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -58,7 +64,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-  PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\e[01;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
+  PS1="\[\033[00;32m\]\w\[\033[00m\]\[\e[01;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
+  #PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\e[01;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
 else
   PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$ "
 fi
@@ -109,4 +116,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
