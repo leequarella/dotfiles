@@ -118,5 +118,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+alias udup='sudo apt-get update && sudo apt-get upgrade'
 alias be='bundle exec'
 alias beg='bundle exec guard'
