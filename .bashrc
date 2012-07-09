@@ -121,3 +121,4 @@ fi
 alias udup='sudo apt-get update && sudo apt-get upgrade'
 alias be='bundle exec'
 alias beg='bundle exec guard'
+alias rst='rails s thin'
