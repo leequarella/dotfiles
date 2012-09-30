@@ -7,11 +7,11 @@
   PATH=$PATH:$HOME/node_modules/.bin
   
   #RVM
-  #PATH=$PATH:$HOME/.rvm/bin  # <---- THIS MAY BE JUNK
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+  # Load RVM into a shell session *as a function*
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
   #Android Development Tools
-  PATH=$PATH:$HOME/androing-sdk-linux/tools
+  PATH=$PATH:$HOME/android-sdk-linux/tools
 
 #finds the currently checked out git branch of the current directory
 parse_git_branch() {
@@ -124,3 +124,5 @@ alias beg='bundle exec guard'
 alias rst='rails s thin'
 alias mysqlp='mysql -u root -pim1coolguy'
 alias mysqldumpp='mysqldump -u root -pim1coolguy'
+alias adb='~/android-sdk-linux/platform-tools/adb'
+alias android='~/android-sdk-linux/tools/android'
