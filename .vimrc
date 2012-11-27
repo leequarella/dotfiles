@@ -9,6 +9,14 @@ call pathogen#infect()
 " Seriously, guys. It's not like :W is bound to anything anyway.
   command! W :w
 
+" Map ctrl-movement keys to window switching
+ map <C-k> <C-w><Up>
+ map <C-j> <C-w><Down>
+ map <C-l> <C-w><Right>
+ map <C-h> <C-w><Left>
+
+"esc is far away, let's try ;; to get us out of insert mode
+imap ;; <esc>
 
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
@@ -73,25 +81,3 @@ inoremap <s-tab> <c-n>
 let mapleader=","
 
 map <leader>t :w\|!rspec --drb --color %<cr>
-
-" other tab auto complete method
-"function! Smart_TabComplete()
-"  let line = getline('.')                         " current line
-"  let substr = strpart(line, -1, col('.')+1)      " from the start of the current of the cursor
-"  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-"  if (strlen(substr)==0)                          " nothing to match on empty string
-"    return "\<tab>"
-"  endif
-"
-"  let has_period = match(substr, '\.') != -1      " position of period, if any
-"  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-"  if (!has_period && !has_slash)
-"    return "\<C-X>\<C-P>"                         " existing text matching
-"  elseif ( has_slash )
-"    return "\<C-X>\<C-F>"                         " file matching
-"  else
-"    return "\<C-X>\<C-O>"                         " plugin matching
-"  endif
-"endfunction
-"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
