@@ -9,8 +9,6 @@ call pathogen#infect()
 " Seriously, guys. It's not like :W is bound to anything anyway.
   command! W :w
 
-"make :! act like console by including bashrc... or something
-set shellcmdflag=-Ic
 
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
@@ -77,7 +75,7 @@ inoremap <s-tab> <c-n>
 
 let mapleader=","
 
-map <leader>t :w\|!spec --drb %<cr>
+map <leader>t :w\|!rspec --drb --color %<cr>
 
 " other tab auto complete method
 "function! Smart_TabComplete()
