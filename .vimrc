@@ -1,6 +1,9 @@
 call pathogen#infect()
 set nocompatible
 
+"make :! act like console by including bashrc... or something
+set shellcmdflag=-ic
+
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
 
