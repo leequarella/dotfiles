@@ -10,7 +10,7 @@ call pathogen#infect()
   command! W :w
 
 "make :! act like console by including bashrc... or something
-set shellcmdflag=-ic
+set shellcmdflag=-Ic
 
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
@@ -76,6 +76,8 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 let mapleader=","
+
+map <leader>t :w\|!spec --drb %<cr>
 
 " other tab auto complete method
 "function! Smart_TabComplete()
