@@ -42,9 +42,6 @@ set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
   "pressing enter key in command mode removes search highlighting
   nnoremap <CR> :nohlsearch <CR>
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
 set mouse=a
 
 cnoreabbrev td tab drop
