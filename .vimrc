@@ -1,37 +1,53 @@
 call pathogen#infect()
-set nocompatible
+
+" ARROW KEYS ARE UNACCEPTABLE
+  map <Left> :echo "no!"<cr>
+  map <Right> :echo "no!"<cr>
+  map <Up> :echo "no!"<cr>
+  map <Down> :echo "no!"<cr>
+
+" Seriously, guys. It's not like :W is bound to anything anyway.
+  command! W :w
 
 "make :! act like console by including bashrc... or something
 set shellcmdflag=-ic
 
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
+set history=100
 
-set history=50
-set wildmenu
-set showcmd
+set scrolloff=3   " Keep more context when scrolling off the end of a buffer
+set ruler         " show the cursor position all the time
+set wildmenu      " Make tab completion for files/buffers act like bash
+set showcmd       " display incomplete commands
+set hidden        " keep undo history for background buffers
+set autoread      " autoamically read the file again when it is changed externally
+set showtabline=2 " always show tab bar
 
-set hlsearch " set hlsearch  " highlight previous search matches
-set incsearch " search as you type
-set ignorecase
-set smartcase
-
-map Q gq
-
-set scrolloff=3
-set ruler
+" Editting configuration
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set autoindent
 
-set mouse=a
-
-set autoread
-
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+" set smartindent
 set laststatus=2
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+"Search Stuff
+  set hlsearch  " highlight previous search matches
+  set incsearch " search as you type
+  " Make searches case-sensitive only if they contain upper-case characters
+  set ignorecase
+  set smartcase
+  "pressing enter key in command mode removes search highlighting
+  nnoremap <CR> :nohlsearch <CR>
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+set mouse=a
 
 cnoreabbrev td tab drop
 
@@ -45,35 +61,40 @@ else
 	set autoindent
 endif
 
-"pressing enter key in command mode removes search highlighting
-nnoremap <CR> :nohlsearch <CR>
 
-"tab auto complete
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
+" Remap the tab key to do autocompletion or indentation depending on the
+" context (from http://www.vim.org/tips/tip.php?tip_id=102)
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
     return "\<tab>"
-  endif
-
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
   else
-    return "\<C-X>\<C-O>"                         " plugin matching
+    return "\<c-p>"
   endif
 endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+let mapleader=","
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- map <Left> :echo "no!"<cr>
- map <Right> :echo "no!"<cr>
- map <Up> :echo "no!"<cr>
- map <Down> :echo "no!"<cr>
+" other tab auto complete method
+"function! Smart_TabComplete()
+"  let line = getline('.')                         " current line
+"  let substr = strpart(line, -1, col('.')+1)      " from the start of the current of the cursor
+"  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+"  if (strlen(substr)==0)                          " nothing to match on empty string
+"    return "\<tab>"
+"  endif
+"
+"  let has_period = match(substr, '\.') != -1      " position of period, if any
+"  let has_slash = match(substr, '\/') != -1       " position of slash, if any
+"  if (!has_period && !has_slash)
+"    return "\<C-X>\<C-P>"                         " existing text matching
+"  elseif ( has_slash )
+"    return "\<C-X>\<C-F>"                         " file matching
+"  else
+"    return "\<C-X>\<C-O>"                         " plugin matching
+"  endif
+"endfunction
+"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
