@@ -1,0 +1,2 @@
+alias mysql="/usr/local/mysql/bin/mysql"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

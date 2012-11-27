@@ -1,17 +1,12 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 #PATH Additions
-  #npm modules installed in user home directory
-  PATH=$PATH:$HOME/node_modules/.bin
-  
   #RVM
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
   # Load RVM into a shell session *as a function*
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-  #Android Development Tools
-  PATH=$PATH:$HOME/android-sdk-linux/tools
+  ### Added by the Heroku Toolbelt
+  #possibly mac-only?  LQ
+  export PATH="/usr/local/heroku/bin:$PATH"
 
 #finds the currently checked out git branch of the current directory
 parse_git_branch() {
@@ -65,7 +60,6 @@ fi
 
 if [ "$color_prompt" = yes ]; then
   PS1="\[\033[00;32m\]\w\[\033[00m\]\[\e[01;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
-  #PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\e[01;33;49m\]\$(parse_git_branch)\[\e[0;0m\]$ "
 else
   PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$ "
 fi
@@ -102,10 +96,9 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
+# put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -116,13 +109,3 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-
-alias udup='sudo apt-get update && sudo apt-get upgrade'
-alias be='bundle exec'
-alias beg='bundle exec guard'
-alias rst='rails s thin'
-alias mysqlp='mysql -u root -pim1coolguy'
-alias mysqldumpp='mysqldump -u root -pim1coolguy'
-alias adb='~/android-sdk-linux/platform-tools/adb'
-alias android='~/android-sdk-linux/tools/android'
