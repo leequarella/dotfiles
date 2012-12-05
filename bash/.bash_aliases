@@ -1,6 +1,6 @@
 resetDataBaseAndCloneForTest(){
-  rake db:reset
-  rake db:test:clone
+  bundle exec rake db:reset
+  bundle exec rake db:test:clone
 }
 
 alias be='bundle exec'
