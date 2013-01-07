@@ -1,5 +1,6 @@
 call pathogen#infect()
 
+
 " ARROW KEYS ARE UNACCEPTABLE
   map <Left> :echo "no!"<cr>
   map <Right> :echo "no!"<cr>
@@ -22,6 +23,8 @@ set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
 set history=100
 
+set number        " Show line numbers
+set nowrap        " Turn off Text Wrap
 set scrolloff=3   " Keep more context when scrolling off the end of a buffer
 set ruler         " show the cursor position all the time
 set wildmenu      " Make tab completion for files/buffers act like bash
@@ -56,14 +59,12 @@ set mouse=a
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 :au InsertLeave * match ExtraWhitespace /\s\+$/
-:match ExtraWhitespace /\s\+$/           " Show trailing whitespace:
-:match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab:
-:match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line:
+:match ExtraWhitespace /\s\+$/           " Show trailing whitespace
+:match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
+:match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
 
 cnoreabbrev td tab drop
 
-set number
-set nowrap
 syntax on
 if has("autocmd")
 	filetype plugin indent on
