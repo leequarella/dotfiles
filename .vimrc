@@ -52,6 +52,14 @@ set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 set mouse=a
 
+"Highlight trailing whitespace in red
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+:au InsertLeave * match ExtraWhitespace /\s\+$/
+:match ExtraWhitespace /\s\+$/           " Show trailing whitespace:
+:match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab:
+:match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line:
+
 cnoreabbrev td tab drop
 
 set number
