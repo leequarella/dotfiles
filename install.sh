@@ -7,6 +7,8 @@
   cp bash/.bash_aliases $HOME
   echo "Copying .bashrc"
   cp bash/.bashrc $HOME
+  echo "Copying .tmux.conf"
+  cp .tmux.conf $HOME
 
 #Copy bash correct bash profile based on OS
   case $( uname -s ) in
@@ -18,9 +20,17 @@
     cp bash/.bash_profile-mac "$HOME/.bash_profile";;
   esac
 
-#Creao otherac pianobar conf
-  read -p "Pandora Login:" pandora_login
-  read -s -p "Pandora Password:" pandora_password
+#Copy .gitconfig
+  echo "Copying .gitconfig"
+  cp .gitconfig $HOME
+  read -p "Full Name: " full_name
+  read -p "Github Login(email): " git_email
+  git config --global user.name "$full_name"
+  git config --global user.email $git_email
+
+#Create pianobar conf
+  read -p "Pandora Login: " pandora_login
+  read -s -p "Pandora Password: " pandora_password
   echo
 
   tls_fingerprint=$(openssl s_client -connect tuner.pandora.com:443 < /dev/null 2> /dev/null | \
