@@ -1,7 +1,4 @@
-alias udup='sudo apt-get update && sudo apt-get upgrade'
-
-alias adb='~/android-sdk-linux/platform-tools/adb'
-alias android='~/android-sdk-linux/tools/android'
-
 #Android Development Tools
 PATH=$PATH:$HOME/android-sdk-linux/tools
+
+. ~/.bashrc
