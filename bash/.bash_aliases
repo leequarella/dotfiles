@@ -12,7 +12,7 @@ alias spec='rspec'
 alias mysqlp='mysql -u root -pim1coolguy'
 alias mysqldumpp='mysqldump -u root -pim1coolguy'
 
-alias udup='sudo apt-get update && sudo apt-get upgrade'
+alias udup='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
 
 alias adb='~/android-sdk-linux/platform-tools/adb'
 alias android='~/android-sdk-linux/tools/android'
