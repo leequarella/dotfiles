@@ -27,6 +27,7 @@
   read -p "Github Login(email): " git_email
   git config --global user.name "$full_name"
   git config --global user.email $git_email
+  git config --global core.editor "vim"
 
 #Create pianobar conf
   read -p "Pandora Login: " pandora_login
