@@ -1,4 +1,5 @@
 #Android Development Tools
 PATH=$PATH:$HOME/android-sdk-linux/tools
+PATH=$PATH:$HOME/android-sdk-linux/platform-tools
 
 . ~/.bashrc
