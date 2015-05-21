@@ -94,3 +94,6 @@ map <leader>r :w\|!RAILS_ENV=test bundle exec rake spec:javascript SPEC=my_test 
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" associate *.lid with ruby filetype
+au BufNewFile,BufRead *.lic set ft=ruby
