@@ -97,7 +97,3 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " associate *.lic with ruby filetype.  .lic are lich files for DR
 au BufNewFile,BufRead *.lic set ft=ruby
-
-" Make so enter key gives new line and doesn't enter insert mode
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
