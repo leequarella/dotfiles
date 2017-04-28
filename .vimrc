@@ -16,8 +16,8 @@ call pathogen#infect()
  map <C-l> <C-w><Right>
  map <C-h> <C-w><Left>
 
-"esc is far away, let's try ;; to get us out of insert mode
-imap ;; <esc>
+"esc is far away, let's try jj to get us out of insert mode
+imap jj <esc>
 
 set backupdir=~/.backup,/tmp
 set backspace=indent,eol,start
