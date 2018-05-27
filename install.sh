@@ -3,12 +3,19 @@
 #Copy basics
   echo "Copying .zshrc"
   cp .zshrc $HOME
+
+  echo "Copying .powerlevel9k"
+  cp .powerlevel9k $HOME
+
   echo "Copying .vimrc"
   cp .vimrc $HOME
+
   echo "Copying .bash_aliases"
   cp bash/.bash_aliases $HOME
+
   echo "Copying .bashrc"
   cp bash/.bashrc $HOME
+
   echo "Copying .tmux.conf"
   cp .tmux.conf $HOME
 
