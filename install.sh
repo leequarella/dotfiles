@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #Copy basics
+  echo "Copying .zshrc"
+  cp .zshrc $HOME
   echo "Copying .vimrc"
   cp .vimrc $HOME
   echo "Copying .bash_aliases"
@@ -28,20 +30,3 @@
   git config --global user.name "$full_name"
   git config --global user.email $git_email
   git config --global core.editor "vim"
-
-#Create pianobar conf
-  read -p "Pandora Login: " pandora_login
-  read -s -p "Pandora Password: " pandora_password
-  echo
-
-  tls_fingerprint=$(openssl s_client -connect tuner.pandora.com:443 < /dev/null 2> /dev/null | \
-    openssl x509 -noout -fingerprint | tr -d ':' | cut -d'=' -f2)
-
-  echo "Creating .config/pianobar/config"
-  mkdir "$HOME/.config/pianobar"
-  pianobar_config_path="$HOME/.config/pianobar/config"
-  touch $pianobar_config_path
-  echo "tls_fingerprint = $tls_fingerprint" > $pianobar_config_path
-  echo "autostart_station = 73789290590671043" >> $pianobar_config_path
-  echo "user = $pandora_login" >> $pianobar_config_path
-  echo "password = $pandora_password" >> $pianobar_config_path
