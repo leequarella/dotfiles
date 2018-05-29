@@ -1,6 +1,7 @@
+echo "Loading .zshrc ..."
+
 source $HOME/.powerlevel9k
 
-echo "Loading .zshrc ..."
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
@@ -88,6 +89,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+#React-native stuff for android
+export ANDROID_HOME=${HOME}/Android/Sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+export PATH="$HOME/.yarn/bin:$PATH"
 
 source $HOME/.rvm/scripts/rvm
 PATH=$PATH:$HOME/.rvm/bin
