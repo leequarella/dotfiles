@@ -32,8 +32,8 @@
 #Copy .gitconfig
   echo "Copying .gitconfig"
   cp .gitconfig $HOME
-  # read -p "Full Name: " full_name
-  # read -p "Github Login(email): " git_email
-  # git config --global user.name "$full_name"
-  # git config --global user.email $git_email
-  # git config --global core.editor "vim"
+  read -p "Full Name: " full_name
+  read -p "Github Login(email): " git_email
+  git config --global user.name "$full_name"
+  git config --global user.email $git_email
+  git config --global core.editor "vim"

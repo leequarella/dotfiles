@@ -6,7 +6,7 @@
   ui = auto
 [alias]
   st = status
-  ci = commit
+  co = commit
   di = diff
   dc = diff --cached
   aa = add --all
