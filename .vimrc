@@ -1,6 +1,5 @@
 call pathogen#infect()
 
-
 " ARROW KEYS ARE UNACCEPTABLE
   map <Left> :echo "no!"<cr>
   map <Right> :echo "no!"<cr>
@@ -89,8 +88,7 @@ inoremap <s-tab> <c-n>
 
 let mapleader=","
 
-map <leader>t :w\|!spring rspec --color %<cr>
-map <leader>r :w\|!RAILS_ENV=test bundle exec rake spec:javascript SPEC=my_test %<cr>
+map <leader>t :w\|!bin/rails t --color %<cr>
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
