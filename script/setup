@@ -6,6 +6,7 @@ echo "Starting codespace customization!"
 echo "Copying dotfiles.."
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf ~/
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.vimrc ~/
+cp /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig ~/
 
 echo "Installing vim pathogen.."
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
