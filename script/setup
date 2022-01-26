@@ -7,7 +7,6 @@ echo "Copying dotfiles.."
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf ~/
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.vimrc ~/
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig ~/
-cp /workspaces/.codespaces/.persistedshare/dotfiles/.codespaces_zshrc ~/.zshrc
 
 echo "Installing vim pathogen.."
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
