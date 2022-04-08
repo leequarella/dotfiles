@@ -1,6 +1,13 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 echo "Loading .zshrc ..."
 
-source $HOME/.powerlevel9k
+# source $HOME/.powerlevel9k
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -13,7 +20,7 @@ export ZSH=/Users/leequarella/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,7 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"
+#source $HOME/.rvm/scripts/rvm
+#PATH=$PATH:$HOME/.rvm/bin
 
 #React-native stuff for android
 export ANDROID_HOME=${HOME}/Android/Sdk
@@ -100,6 +109,24 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
-source $HOME/.rvm/scripts/rvm
-PATH=$PATH:$HOME/.rvm/bin
+# some handy aliases
+alias grep='grep --color=auto'
+alias vf='vim $(fzf)'
+alias weather='curl wttr.in'
+# alias ls='exa'
+# alias cat='bat'
 
+# Load rbenv automatically
+eval "$(rbenv init -)"
+#source /usr/local/opt/chruby/share/chruby/chruby.sh
+#source /usr/local/opt/chruby/share/chruby/auto.sh
+
+# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
+
+eval "$(nodenv init -)"
+
+eval "$(direnv hook zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
