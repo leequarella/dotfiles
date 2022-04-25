@@ -110,6 +110,8 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # some handy aliases
+alias be='bundle exec'
+alias dc='docker compose'
 alias grep='grep --color=auto'
 alias vf='vim $(fzf)'
 alias weather='curl wttr.in'
