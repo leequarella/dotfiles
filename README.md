@@ -2,7 +2,7 @@ My personal dotfiles.
 
 Oh-my-zsh https://github.com/robbyrussell/oh-my-zsh
 
-Powerlevel9k https://github.com/bhilburn/powerlevel9k
+Powerlevel10k https://github.com/romkatv/powerlevel10k
 
 For gnome terminal color, use "Material" from here: https://github.com/Mayccoll/Gogh
 
