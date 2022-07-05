@@ -1,7 +1,5 @@
 My personal dotfiles.
 
-To install `./install.sh`
-
 Oh-my-zsh https://github.com/robbyrussell/oh-my-zsh
 
 Powerlevel9k https://github.com/bhilburn/powerlevel9k
