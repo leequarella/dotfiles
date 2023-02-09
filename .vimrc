@@ -1,19 +1,22 @@
 call pathogen#infect()
 
 " ARROW KEYS ARE UNACCEPTABLE
-  map <Left> :echo "no!"<cr>
-  map <Right> :echo "no!"<cr>
-  map <Up> :echo "no!"<cr>
-  map <Down> :echo "no!"<cr>
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
+ 
+" K should be the opposite J, at least that's what my brain seems to think.
+nnoremap <S-k> i<CR><Esc>
 
-" Seriously, guys. It's not like :W is bound to anything anyway.
-  command! W :w
+" Seriously, it's not like :W is bound to anything anyway.
+command! W :w
 
 " Map ctrl-movement keys to window switching
- map <C-k> <C-w><Up>
- map <C-j> <C-w><Down>
- map <C-l> <C-w><Right>
- map <C-h> <C-w><Left>
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
 
 "esc is far away, let's try jj to get us out of insert mode
 imap jj <esc>
