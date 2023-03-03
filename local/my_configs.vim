@@ -38,7 +38,7 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-map <leader>t :w\|!spring rspec --color %<cr>
+map <leader>t :w\|!rspec --color %<cr>
 map <leader>r :w\|!RAILS_ENV=test bundle exec rake spec:javascript SPEC=my_test %<cr>
 
 " add jbuilder syntax highlighting
