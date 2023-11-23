@@ -46,3 +46,13 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " associate *.lic with ruby filetype.  .lic are lich files for DR
 au BufNewFile,BufRead *.lic set ft=ruby
+
+" K should be the opposite J, at least that's what my brain seems to think.
+nnoremap <S-k> i<CR><Esc>
+
+" Set Standard as the only linter and fixer for Ruby files
+" and thereby preventing conflicts with RuboCop
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+" automatically fixing with standardrb on save
+let g:ale_fix_on_save = 1
