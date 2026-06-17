@@ -14,7 +14,7 @@ This is to be an unbiased/blind review. Don't point it at anything specific unle
 
 All review notes go in the project's own `tmp/` directory — the `tmp/` folder at the git
 repository root (i.e. `./tmp/` relative to the repo, an absolute path like
-`<repo-root>/tmp/`). **NEVER the machine's filesystem root `/tmp/`.** Always write a
+`<repo-root>/tmp/`). Never the machine's filesystem root `/tmp/`. Always write a
 repo-relative path (`tmp/review-<topic>.md`), never a leading-slash absolute path.
 
 ## Steps
@@ -25,13 +25,7 @@ repo-relative path (`tmp/review-<topic>.md`), never a leading-slash absolute pat
 2. Derive a `<topic>` slug — a short kebab-case name for what changed (from the branch
    name, the dominant changed area, or the user's words). Used for the filename.
 
-3. Ensure the project scratch dir exists and is ignored. Create `<repo-root>/tmp/` if
-   missing. If the repo's `.gitignore` doesn't already ignore the repo-root tmp dir, append
-   a `/tmp/` rule (under a brief comment) — in `.gitignore` a leading-slash `/tmp/` is
-   repo-root-relative (it ignores `./tmp/`, not the machine root). Review notes must never
-   be committed.
-
-4. Launch the review in the background. Spawn a subagent with the Agent tool,
+3. Launch the review in the background. Spawn a subagent with the Agent tool,
    `run_in_background: true`, as a no-context reviewer (so it isn't biased by the author's
    rationale). Instruct it to:
    - Perform a `/code-review`-style review of the target — correctness/logic bugs first,
@@ -52,10 +46,9 @@ repo-relative path (`tmp/review-<topic>.md`), never a leading-slash absolute pat
 
 ## Commit gate
 
-**Treat P0 and P1 as blocking:** resolve (or get explicit sign-off to defer) every P0/P1
+Treat P0 and P1 as blocking: resolve (or get explicit sign-off to defer) every P0/P1
 before committing or pushing. P2s are optional.
 
 ## Notes
 
 - Per-commit LLM review is too slow/costly — review at feature/beat granularity.
-  Per-commit mechanical safety is the pre-commit hook's job (fmt/clippy/test).
