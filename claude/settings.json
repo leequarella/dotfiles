@@ -1,0 +1,33 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(tail:*)",
+      "Bash(sed:*)",
+      "Bash(echo *)",
+      "Bash(awk:*)",
+      "Bash(cd *)",
+      "Bash(python3 *)",
+      "Bash(cargo check *)",
+      "Bash(cargo clippy *)",
+      "Bash(cargo test *)",
+      "Bash(cargo build *)",
+      "Bash(cargo fmt *)",
+      "Bash(cargo update *)",
+      "Bash(git show *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git check-ignore *)",
+      "Bash(git worktree *)"
+    ]
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
+  }
+}

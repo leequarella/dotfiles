@@ -1,0 +1,29 @@
+{
+  "theme": "dark",
+  "display": {
+    "style": "minimal",
+    "charset": "unicode",
+    "lines": [
+      {
+        "segments": {
+          "directory": {
+            "enabled": true,
+            "style": "full"
+          },
+          "git": {
+            "enabled": true,
+            "showSha": false,
+            "showWorkingTree": true
+          },
+          "model": {
+            "enabled": true
+          },
+          "context": {
+            "enabled": true,
+            "showPercentageOnly": true
+          }
+        }
+      }
+    ]
+  }
+}
