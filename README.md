@@ -7,6 +7,6 @@ Powerlevel10k https://github.com/romkatv/powerlevel10k
 For gnome terminal color, use "Material" from here: https://github.com/Mayccoll/Gogh
 
 For better vim stuff, install https://github.com/amix/vimrc
-then move the my_configs.vim to ~/.vim_runtimes/
+then symlink my_configs.vim to ~/.vim_runtime/my_configs.vim
 
 Using the Hack font from Nerd-Fonts https://github.com/ryanoasis/nerd-fonts

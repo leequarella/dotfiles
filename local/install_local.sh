@@ -1,20 +1,24 @@
 #!/bin/bash
 
+# Run from the repo root regardless of where this script is invoked from
+cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)" || exit 1
+
 #Copy basics
   echo "Copying .zshrc"
   cp .zshrc $HOME
 
-  echo "Copying .powerlevel9k"
-  cp .powerlevel9k $HOME
-
-  echo "Copying .vimrc"
-  cp .vimrc $HOME
+  echo "Installing amix/vimrc"
+  if [ ! -d "$HOME/.vim_runtime" ]; then
+    git clone --depth=1 https://github.com/amix/vimrc.git "$HOME/.vim_runtime"
+    sh "$HOME/.vim_runtime/install_awesome_vimrc.sh"
+  fi
+  ln -sf "$(pwd)/my_configs.vim" "$HOME/.vim_runtime/my_configs.vim"
 
   echo "Copying .bash_aliases"
-  cp bash/.bash_aliases $HOME
+  cp local/bash/.bash_aliases $HOME
 
   echo "Copying .bashrc"
-  cp bash/.bashrc $HOME
+  cp local/bash/.bashrc $HOME
 
   echo "Copying .tmux.conf"
   cp .tmux.conf $HOME
@@ -23,10 +27,10 @@
   case $( uname -s ) in
   Linux)
     echo "Copying Linux Bash Profile"
-    cp bash/.bash_profile-ubuntu "$HOME/.bash_profile";;
+    cp local/bash/.bash_profile-ubuntu "$HOME/.bash_profile";;
   *)
     echo "Copying Mac Bash Profile"
-    cp bash/.bash_profile-mac "$HOME/.bash_profile";;
+    cp local/bash/.bash_profile-mac "$HOME/.bash_profile";;
   esac
 
 #Copy .gitconfig

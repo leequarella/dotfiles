@@ -1,12 +1,24 @@
 " 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 
 "esc is far away, let's try jj to get us out of insert mode
 imap jj <esc>
 
 set number        " Show line numbers
 set nowrap        " Turn off Text Wrap
+set scrolloff=3   " Keep more context when scrolling off the end of a buffer
+set showcmd       " display incomplete commands
+set showtabline=2 " always show tab bar
+
+" ARROW KEYS ARE UNACCEPTABLE
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
+
+cnoreabbrev td tab drop
 
 "pressing enter key in command mode removes search highlighting
 nnoremap <CR> :nohlsearch <CR>

@@ -4,13 +4,13 @@
 echo "Starting codespace customization!"
 
 echo "Copying dotfiles.."
-cp /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf ~/
-cp /workspaces/.codespaces/.persistedshare/dotfiles/.vimrc ~/
-cp /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig ~/
+cp .tmux.conf ~/
+cp .gitconfig ~/
 
-echo "Installing vim pathogen.."
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+echo "Installing amix/vimrc.."
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+ln -sf "$(pwd)/my_configs.vim" ~/.vim_runtime/my_configs.vim
 
 # Always want to use ZSH as my default shell (e.g. for SSH)
 if ! grep -q "root.*/bin/zsh" /etc/passwd

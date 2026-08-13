@@ -7,14 +7,12 @@ fi
 
 echo "Loading .zshrc ..."
 
-# source $HOME/.powerlevel9k
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/leequarella/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -118,17 +116,18 @@ alias weather='curl wttr.in'
 # alias ls='exa'
 # alias cat='bat'
 
-# Load rbenv automatically
-eval "$(rbenv init -)"
+# Load rbenv/nodenv/direnv automatically, if installed (machines using mise
+# instead won't have these, and an unguarded eval would error on every shell)
+command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 #source /usr/local/opt/chruby/share/chruby/chruby.sh
 #source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # export PATH="/usr/local/sbin:$PATH"
 
-eval "$(nodenv init -)"
+command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init -)"
 
-eval "$(direnv hook zsh)"
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -140,3 +139,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# Machine-specific shell setup (e.g. Gusto's mise/brew/git-duet/gdev init)
+[[ -f ~/.gusto/init.sh ]] && source ~/.gusto/init.sh
