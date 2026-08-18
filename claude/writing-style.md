@@ -176,10 +176,13 @@ Register-specific notes:
 - **Commit messages** say what changed and why. Lead with the problem where
   there was one. No second person, no jokes, no adjectives about the quality of
   the work.
-- **Code comments** explain why, not what. The code says what. A comment earns
-  its place by recording a decision, a constraint, or a trap: why this order,
-  why not the obvious approach, what breaks if you change it. If it restates
-  the line below it, delete it. Match the surrounding file's comment density.
+- **Code comments** are rare. The default is none: a good name beats a sentence,
+  and a comment that restates the line below it is noise. Write one only where
+  the code genuinely can't say the thing, then keep it to a line that names its
+  subject in the first clause and stays inside the vocabulary of the thing it
+  sits on. If it reads like code, the code is wrong — simplify that instead.
+  Decisions, rejected alternatives, rollout notes and ticket numbers belong on
+  the PR. A comment is read against the file, not the diff.
 - **Plan and design docs** record decisions and the reasoning that produced
   them, including rejected alternatives and the data behind a call. A future
   reader needs to know why a thing is the way it is so they don't "fix" it
