@@ -35,6 +35,12 @@ repo-relative path (`tmp/review-<topic>.md`), never a leading-slash absolute pat
    - Anchor on the project's own standards if present: read `CLAUDE.md` and
      `docs/architecture.md` (or any architecture/conventions doc) and review against them.
      If a project has neither, do a general correctness + cleanliness review.
+   - Review added comments against this bar, which is stricter than most projects' own
+     `CLAUDE.md`: the default is no comment. Each one must name its subject in the first
+     clause, stay inside the vocabulary of the construct it sits on (a route knows nothing
+     about browser tabs), and read correctly against the *file* rather than the diff. Flag
+     comments that restate the code, justify the author's choices, reference tickets or PRs,
+     or document rollout/limitations.
    - Verify, don't trust, the author's intent; check edge cases and missed call sites.
    - Categorize every finding P0 (must fix before commit), P1 (should fix), P2
      (nice-to-have), each with `file:line`, the problem, and a concrete suggested fix.
